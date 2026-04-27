@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'checkstyle'
+    id "com.github.spotbugs" version "5.0.14"
+}
+
+group = 'edu.sandiego.comp305'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+checkstyle {
+    toolVersion = '10.12.5'
+    sourceSets = [sourceSets.main, sourceSets.test]
+    ignoreFailures = false
+}
+
+spotbugs {
+    toolVersion = '4.8.3'
+    ignoreFailures = false
+}
+
+application {
+    mainClass = 'edu.sandiego.comp305.StringUtils'
+}
+
+test {
+    useJUnitPlatform()
+    mustRunAfter spotbugsMain
+    mustRunAfter spotbugsTest
+}
