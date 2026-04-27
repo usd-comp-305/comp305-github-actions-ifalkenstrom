@@ -19,8 +19,9 @@ dependencies {
 
 checkstyle {
     toolVersion = '10.12.5'
-    sourceSets = [sourceSets.main, sourceSets.test]
+    configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
     ignoreFailures = false
+    showViolations = true
 }
 
 spotbugs {
