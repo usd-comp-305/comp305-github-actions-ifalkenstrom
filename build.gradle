@@ -19,7 +19,7 @@ dependencies {
 
 checkstyle {
     toolVersion = '10.12.5'
-    configFile = file("${project.projectDir}/config/checkstyle/checkstyle.xml")
+    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
     ignoreFailures = false
     showViolations = true
 }
